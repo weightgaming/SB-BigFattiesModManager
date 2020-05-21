@@ -3,11 +3,12 @@ from datetime import datetime
 from pathlib import Path
 
 import yaml
+from bson import ObjectId
 from gridfs import GridFSBucket
 from pymongo import MongoClient
 
 
-class SBModeManager:
+class SBModManager:
     sb_install_location: str
     instance_directory: str = 'instances'
 
@@ -62,6 +63,8 @@ class SBModeManager:
 
     def load_mod_pack(self, instance_name: str, mod_pack_id=None, mod_pack_name=None):
         if mod_pack_id is not None:
+            if isinstance(mod_pack_id, str):
+                mod_pack_id = ObjectId(mod_pack_id)
             pack_filter = {'_id': mod_pack_id}
         elif mod_pack_name is not None:
             pack_filter = {'name': mod_pack_name}
@@ -79,6 +82,8 @@ class SBModeManager:
 
     def download_mod(self, instance_name: str, mod_id=None, mod_name=None):
         if mod_id is not None:
+            if isinstance(mod_id, str):
+                mod_id = ObjectId(mod_id)
             mod_filter = {'_id': mod_id}
         elif mod_name is not None:
             mod_filter = {'name': mod_name}
