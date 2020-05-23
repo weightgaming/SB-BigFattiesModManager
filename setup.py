@@ -9,5 +9,10 @@ setup(
     author='grotlover2',
     author_email='grotlover2@live.com',
     description='A mod manager for Starbound that focuses on the weight gain mods on Weightgaming',
-    install_requires=['pymongo', 'pyyaml']
+    install_requires=['pymongo', 'pyyaml'],
+    entry_points={
+        'console_scripts': [
+            'sb-modmanager = App:main'
+        ],
+    },
 )

@@ -22,7 +22,7 @@ class SBModManager:
             config: dict = yaml.safe_load(stream)['config']
 
             self.sb_install_location = config['starbound install directory']
-            self.client = MongoClient(config['mongo db url'])
+            self.client = MongoClient(config['mongodb'])
 
             if 'instance directory location' in config.keys():
                 self.instance_directory = config['instance directory location']

@@ -1,3 +1,3 @@
 config:
-  mongo db url: 
-  starbound install directory:
+  mongodb: mongodb://wgreadonly:fat@sbfatties.weightgaming.com:27017/?authSource=admin&readPreference=primary&appname=MongoDB%20Compass&ssl=false
+  starbound install directory: G:\Steam\steamapps\common\Starbound\
